@@ -21,7 +21,7 @@ API de autenticação com Spring Boot, H2 database e utilizando JSON Web Token.
     cd ./Auth-Api
     ```
 4. Instale as dependências  
-    Dentro do diretório do projeto, execute o comando npm install para instalar as dependências listadas no arquivo pom.xml:
+    Dentro do diretório do projeto, execute o comando mvn clean install para instalar as dependências listadas no arquivo pom.xml:
     ```
     mvn clean install
     ```
@@ -39,7 +39,7 @@ Rota para registro do usuário, com o seguinte body na requisição:
 {
 	"name": "Nome do usuário",
 	"email": "Email",
-	"password": "Senha
+	"password": "Senha",
 	"role": "Tipo de usuário (ADMIN ou USER)"
 }
 ```
@@ -48,7 +48,7 @@ Rota para login do usuário, com o seguinte body na requisição:
 ```json
 {
 	"email": "Email",
-	"password": "Senha
+	"password": "Senha"
 }
 ```
 ### GET /auth/users
