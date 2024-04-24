@@ -1,10 +1,7 @@
 package com.jeiel.AuthAPI.Controller;
 
 import com.jeiel.AuthAPI.Domains.User.User;
-import com.jeiel.AuthAPI.Repositories.AuthenticationDTO;
-import com.jeiel.AuthAPI.Repositories.LoginResponseDTO;
-import com.jeiel.AuthAPI.Repositories.RegisterDTO;
-import com.jeiel.AuthAPI.Repositories.UserRepository;
+import com.jeiel.AuthAPI.Repositories.*;
 import com.jeiel.AuthAPI.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,8 +26,14 @@ public class AuthenticationController {
 
     @GetMapping
     @RequestMapping("/users")
-    public List<User> viewUsers(){
-        return this.repository.findAll();
+    public List<UserDTO> viewUsers(){
+        List<User> users = repository.findAll();
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for(User user: users){
+            UserDTO userDTO = new UserDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getRole());
+            userDTOS.add(userDTO);
+        }
+        return userDTOS;
     }
     @PostMapping
     @RequestMapping("/login")
