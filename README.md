@@ -9,24 +9,23 @@ API de autenticação com Spring Boot, H2 database e utilizando JSON Web Token.
     java --version
     ```
     Caso não tenha o Java instalado, poderá baixá-lo em https://www.oracle.com/br/java/technologies/downloads/
-2. Clone o repositório do GitHub
+2. Clone o repositório do GitHub  
    Abra o terminal e navegue para o diretório onde você deseja que o projeto seja clonado. Em seguida, execute o comando git clone seguido pela URL do repositório do GitHub:
 
    ```
    git clone https://github.com/JeielLucas/Auth-Api.git
    ```
-3. Navegue para o Diretório do Projeto
-
+3. Navegue para o Diretório do Projeto  
     Use o comando cd para entrar no diretório do projeto que você acabou de clonar:
     ```
     cd ./Auth-Api
     ```
-4. Instale as dependências
+4. Instale as dependências  
     Dentro do diretório do projeto, execute o comando npm install para instalar as dependências listadas no arquivo pom.xml:
     ```
     mvn clean install
     ```
- 5. Inicie o projeto com Maven
+ 5. Inicie o projeto com Maven  
  Agora que você tem as dependências instaladas, pode usar o Maven para iniciar o projeto. Maven é uma ferramenta de automação de compilação utilizada primariamente para projetos Java, mas também pode ser usado para construir e gerenciar projetos em outras linguagens. Execute o seguinte comando:
     ```
     mvn spring-boot:run
