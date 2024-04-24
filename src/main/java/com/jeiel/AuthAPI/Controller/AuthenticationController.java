@@ -11,10 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("auth")
@@ -27,6 +26,11 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
+    @GetMapping
+    @RequestMapping("/users")
+    public List<User> viewUsers(){
+        return this.repository.findAll();
+    }
     @PostMapping
     @RequestMapping("/login")
     public ResponseEntity loginController(@RequestBody AuthenticationDTO data){
